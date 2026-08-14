@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://almeida-cma.github.io/js05/atividades.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔄 Atividades Práticas - TEMA 5</title>
+    <style>
+        /* ============================================================
+           ESTILOS GERAIS
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           HEADER
+           ============================================================ */
+        .header {
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        .header h1 span {
+            color: #fff;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* ============================================================
+           CARDS
+           ============================================================ */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #0083b0;
+            margin-bottom: 15px;
+            border-left: 5px solid #0083b0;
+            padding-left: 15px;
+            font-size: 1.4rem;
+        }
+
+        .card h3 {
+            color: #006080;
+            margin: 15px 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: #2c3e50;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        /* ============================================================
+           DESTAQUES
+           ============================================================ */
+        .highlight-box {
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin: 8px 0;
+        }
+
+        .highlight-box.yellow {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .highlight-box.blue {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .highlight-box.green {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+
+        .highlight-box.orange {
+            background: #ffe5cc;
+            border-left: 4px solid #fd7e14;
+        }
+
+        .highlight-box.red {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .highlight-box.purple {
+            background: #e8d5f5;
+            border-left: 4px solid #6f42c1;
+        }
+
+        /* ============================================================
+           ATIVIDADES
+           ============================================================ */
+        .atividade {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s;
+        }
+
+        .atividade:hover {
+            border-color: #0083b0;
+        }
+
+        .atividade .numero {
+            display: inline-block;
+            background: #0083b0;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .atividade .titulo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            display: inline-block;
+        }
+
+        .atividade .enunciado {
+            margin: 12px 0;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #0083b0;
+        }
+
+        .atividade .enunciado code {
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .atividade .exemplo-codigo {
+            background: #f0f0f0;
+            color: #1a1a2e;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            margin: 8px 0;
+            overflow-x: auto;
+            border: 1px solid #dee2e6;
+        }
+
+        .atividade .exemplo-codigo .comment {
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .atividade .exemplo-codigo .keyword {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        .atividade .exemplo-codigo .string {
+            color: #28a745;
+        }
+
+        .atividade .exemplo-codigo .number {
+            color: #fd7e14;
+        }
+
+        .atividade .exemplo-codigo .operator {
+            color: #dc3545;
+        }
+
+        .atividade .exemplo-codigo .function {
+            color: #007bff;
+        }
+
+        .atividade .saida-esperada {
+            background: #d4edda;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin: 8px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            border-left: 4px solid #28a745;
+        }
+
+        .atividade .saida-esperada strong {
+            color: #1e7e34;
+        }
+
+        .atividade .dica-loop {
+            background: #fff3cd;
+            padding: 8px 14px;
+            border-radius: 8px;
+            margin: 8px 0;
+            font-size: 0.9rem;
+            border-left: 4px solid #ffc107;
+        }
+
+        .atividade .dica-loop strong {
+            color: #856404;
+        }
+
+        /* ============================================================
+           CAMPO DE RESPOSTA
+           ============================================================ */
+        .campo-resposta {
+            margin: 12px 0;
+        }
+
+        .campo-resposta label {
+            display: block;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .campo-resposta textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            resize: vertical;
+            min-height: 60px;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .campo-resposta textarea:focus {
+            outline: none;
+            border-color: #0083b0;
+            box-shadow: 0 0 0 3px rgba(0, 131, 176, 0.2);
+        }
+
+        .campo-resposta textarea.correct {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+
+        .campo-resposta textarea.wrong {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+
+        .campo-resposta textarea.disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* ============================================================
+           BOTÕES
+           ============================================================ */
+        .btn {
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            margin: 4px;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 131, 176, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .btn-sm {
+            padding: 6px 16px;
+            font-size: 0.8rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        /* ============================================================
+           RESULTADO
+           ============================================================ */
+        .resultado-item {
+            padding: 4px 0;
+            font-size: 0.9rem;
+        }
+
+        .resultado-item.correct {
+            color: #28a745;
+        }
+
+        .resultado-item.wrong {
+            color: #dc3545;
+        }
+
+        .resultado-item .sugestao {
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-left: 20px;
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 3px solid #0083b0;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .result-box.show {
+            display: block;
+        }
+
+        .score {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0083b0;
+        }
+
+        /* ============================================================
+           FOOTER
+           ============================================================ */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+
+        .btn-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0083b0;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-top:hover {
+            transform: scale(1.05);
+        }
+
+        /* ============================================================
+           RESPONSIVO
+           ============================================================ */
+        @media (max-width: 768px) {
+            .card {
+                padding: 18px;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .header {
+                padding: 20px;
+            }
+            .atividade {
+                padding: 15px;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+            .btn-group .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .header h1 {
+                font-size: 1.2rem;
+            }
+            .badge {
+                font-size: 0.65rem;
+                padding: 3px 10px;
+            }
+            .atividade .exemplo-codigo {
+                font-size: 0.7rem;
+                padding: 10px;
+            }
+            .campo-resposta textarea {
+                font-size: 0.75rem;
+                min-height: 50px;
+            }
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            .header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .badge {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            body {
+                background: white !important;
+                padding: 10px !important;
+            }
+            .container {
+                max-width: 100% !important;
+            }
+            .btn-top {
+                display: none !important;
+            }
+            .highlight-box {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .atividade {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                border: 1px solid #ddd;
+            }
+            .atividade .exemplo-codigo {
+                background: #f5f5f5;
+                color: #1a1a2e;
+            }
+            .atividade .exemplo-codigo .comment {
+                color: #6c757d;
+            }
+            .atividade .exemplo-codigo .keyword {
+                color: #d63384;
+            }
+            .atividade .exemplo-codigo .string {
+                color: #28a745;
+            }
+            .atividade .exemplo-codigo .number {
+                color: #fd7e14;
+            }
+            .atividade .exemplo-codigo .operator {
+                color: #dc3545;
+            }
+            .atividade .exemplo-codigo .function {
+                color: #007bff;
+            }
+            .campo-resposta textarea {
+                border: 1px solid #ddd !important;
+            }
+            .campo-resposta textarea.correct {
+                background: #d4edda !important;
+            }
+            .campo-resposta textarea.wrong {
+                background: #f8d7da !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ============================================================
+        HEADER
+        ============================================================ -->
+        <div class="header">
+            <h1>🔄 Atividades Práticas - TEMA <span>5</span></h1>
+            <p>Laços de Repetição em JavaScript</p>
+            <div class="badge-group">
+                <span class="badge">📝 5 atividades</span>
+                <span class="badge">💻 OneCompiler</span>
+                <span class="badge">🎯 Prática com for/while/do...while</span>
+            </div>
+        </div>
+
+        <!-- ============================================================
+        INTRODUÇÃO
+        ============================================================ -->
+        <div class="card no-print">
+            <h2>📖 Instruções</h2>
+            <p>Para cada atividade:</p>
+            <ol style="margin: 10px 0 10px 25px; color: #2c3e50; line-height: 1.8;">
+                <li>Leia o <strong>enunciado</strong> com atenção</li>
+                <li>Clique em <strong>"Abrir no OneCompiler"</strong> para escrever seu código</li>
+                <li>Execute o código e copie a <strong>saída do console</strong></li>
+                <li>Cole a saída no campo <strong>"Sua resposta"</strong></li>
+                <li>Clique em <strong>"Verificar"</strong> para corrigir</li>
+            </ol>
+            <div class="highlight-box yellow">
+                💡 <strong>DICA:</strong> Use <code>console.log()</code> para exibir os resultados no console do OneCompiler!
+            </div>
+        </div>
+
+        <!-- ============================================================
+        ATIVIDADE 1
+        ============================================================ -->
+        <div class="card">
+            <h2>📝 Atividades</h2>
+
+            <!-- ATIVIDADE 1: FOR -->
+            <div class="atividade" id="atv1">
+                <div>
+                    <span class="numero">1</span>
+                    <span class="titulo">Contagem com FOR (0 a 10)</span>
+                </div>
+
+                <div class="enunciado">
+                    <p><strong>📌 Enunciado:</strong></p>
+                    <p>Use o laço <code>for</code> para exibir os números de <strong>0 a 10</strong> (inclusive).</p>
+                    <p>Cada número deve aparecer em uma linha separada.</p>
+
+                    <div class="dica-loop">
+                        💡 <strong>Dica:</strong> A estrutura do <code>for</code> é:
+                        <code style="display:block; margin-top:4px; font-family:monospace;">
+                            for (let i = 0; i &lt;= 10; i++) { console.log(i); }
+                        </code>
+                    </div>
+
+                    <div class="highlight-box blue" style="margin-top: 8px;">
+                        🔗 <strong>Link útil:</strong>
+                        <button class="btn btn-sm" onclick="abrirOneCompiler(&#39;atv1&#39;)" style="margin-left:8px;">
+                            ▶️ Abrir no OneCompiler
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exemplo-codigo">
+                    <span class="comment">// Contagem com FOR de 0 a 10</span>
+                    <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;=</span> <span class="number">10</span>; i<span class="operator">++</span>) {
+                        <span class="function">console</span>.<span class="function">log</span>(i);
+                    }
+                </div>
+
+                <div class="saida-esperada">
+                    <strong>✅ Saída esperada (primeiras linhas):</strong><br>
+                    0<br>
+                    1<br>
+                    2<br>
+                    ...<br>
+                    10
+                </div>
+
+                <div class="campo-resposta">
+                    <label>📋 Cole aqui a saída do console:</label>
+                    <textarea id="resposta1" placeholder="Cole a saída do OneCompiler aqui..." class="correct" disabled=""></textarea>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-sm" onclick="verificarAtividade(1)">✅ Verificar</button>
+                    <button class="btn btn-sm btn-secondary" onclick="limparResposta(1)">🔄 Limpar</button>
+                </div>
+
+                <div id="feedback1" style="margin-top: 8px;">
+                    <div class="highlight-box green" style="margin-top: 8px;">
+                        <strong>🎉 Perfeito! Todas as linhas estão corretas!</strong>
+                        <div style="margin-top: 4px;"><div class="resultado-item correct">✅ Linha 1: "0" - Correta</div><div class="resultado-item correct">✅ Linha 2: "1" - Correta</div><div class="resultado-item correct">✅ Linha 3: "2" - Correta</div><div class="resultado-item correct">✅ Linha 4: "3" - Correta</div><div class="resultado-item correct">✅ Linha 5: "4" - Correta</div><div class="resultado-item correct">✅ Linha 6: "5" - Correta</div><div class="resultado-item correct">✅ Linha 7: "6" - Correta</div><div class="resultado-item correct">✅ Linha 8: "7" - Correta</div><div class="resultado-item correct">✅ Linha 9: "8" - Correta</div><div class="resultado-item correct">✅ Linha 10: "9" - Correta</div><div class="resultado-item correct">✅ Linha 11: "10" - Correta</div></div>
+                        <div style="margin-top: 8px; font-size: 0.85rem;">
+                            💡 <strong>Sugestão de saída:</strong>
+                            <div style="background: #f0f0f0; color: #1a1a2e; padding: 8px 12px; border-radius: 6px; font-family: monospace; margin-top: 4px; font-size: 0.8rem; border: 1px solid #dee2e6;">
+                                0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATIVIDADE 2: WHILE -->
+            <div class="atividade" id="atv2">
+                <div>
+                    <span class="numero">2</span>
+                    <span class="titulo">Contagem com WHILE (10 a 0)</span>
+                </div>
+
+                <div class="enunciado">
+                    <p><strong>📌 Enunciado:</strong></p>
+                    <p>Use o laço <code>while</code> para exibir uma <strong>contagem regressiva</strong> de <strong>10 a 0</strong> (inclusive).</p>
+                    <p>Cada número deve aparecer em uma linha separada.</p>
+
+                    <div class="dica-loop">
+                        💡 <strong>Dica:</strong> A estrutura do <code>while</code> é:
+                        <code style="display:block; margin-top:4px; font-family:monospace;">
+                            let i = 10;<br>
+                            while (i &gt;= 0) { console.log(i); i--; }
+                        </code>
+                    </div>
+
+                    <div class="highlight-box blue" style="margin-top: 8px;">
+                        🔗 <strong>Link útil:</strong>
+                        <button class="btn btn-sm" onclick="abrirOneCompiler(&#39;atv2&#39;)" style="margin-left:8px;">
+                            ▶️ Abrir no OneCompiler
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exemplo-codigo">
+                    <span class="comment">// Contagem regressiva com WHILE de 10 a 0</span>
+                    <span class="keyword">let</span> i <span class="operator">=</span> <span class="number">10</span>;
+                    <span class="keyword">while</span> (i <span class="operator">&gt;=</span> <span class="number">0</span>) {
+                        <span class="function">console</span>.<span class="function">log</span>(i);
+                        i<span class="operator">--</span>;
+                    }
+                </div>
+
+                <div class="saida-esperada">
+                    <strong>✅ Saída esperada:</strong><br>
+                    10<br>
+                    9<br>
+                    8<br>
+                    ...<br>
+                    0
+                </div>
+
+                <div class="campo-resposta">
+                    <label>📋 Cole aqui a saída do console:</label>
+                    <textarea id="resposta2" placeholder="Cole a saída do OneCompiler aqui..." class="correct" disabled=""></textarea>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-sm" onclick="verificarAtividade(2)">✅ Verificar</button>
+                    <button class="btn btn-sm btn-secondary" onclick="limparResposta(2)">🔄 Limpar</button>
+                </div>
+
+                <div id="feedback2" style="margin-top: 8px;">
+                    <div class="highlight-box green" style="margin-top: 8px;">
+                        <strong>🎉 Perfeito! Todas as linhas estão corretas!</strong>
+                        <div style="margin-top: 4px;"><div class="resultado-item correct">✅ Linha 1: "10" - Correta</div><div class="resultado-item correct">✅ Linha 2: "9" - Correta</div><div class="resultado-item correct">✅ Linha 3: "8" - Correta</div><div class="resultado-item correct">✅ Linha 4: "7" - Correta</div><div class="resultado-item correct">✅ Linha 5: "6" - Correta</div><div class="resultado-item correct">✅ Linha 6: "5" - Correta</div><div class="resultado-item correct">✅ Linha 7: "4" - Correta</div><div class="resultado-item correct">✅ Linha 8: "3" - Correta</div><div class="resultado-item correct">✅ Linha 9: "2" - Correta</div><div class="resultado-item correct">✅ Linha 10: "1" - Correta</div><div class="resultado-item correct">✅ Linha 11: "0" - Correta</div></div>
+                        <div style="margin-top: 8px; font-size: 0.85rem;">
+                            💡 <strong>Sugestão de saída:</strong>
+                            <div style="background: #f0f0f0; color: #1a1a2e; padding: 8px 12px; border-radius: 6px; font-family: monospace; margin-top: 4px; font-size: 0.8rem; border: 1px solid #dee2e6;">
+                                10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATIVIDADE 3: DO...WHILE -->
+            <div class="atividade" id="atv3">
+                <div>
+                    <span class="numero">3</span>
+                    <span class="titulo">Contagem com DO...WHILE (0 a 5)</span>
+                </div>
+
+                <div class="enunciado">
+                    <p><strong>📌 Enunciado:</strong></p>
+                    <p>Use o laço <code>do...while</code> para exibir os números de <strong>0 a 5</strong> (inclusive).</p>
+                    <p>Cada número deve aparecer em uma linha separada.</p>
+
+                    <div class="dica-loop">
+                        💡 <strong>Dica:</strong> A estrutura do <code>do...while</code> é:
+                        <code style="display:block; margin-top:4px; font-family:monospace;">
+                            let i = 0;<br>
+                            do { console.log(i); i++; } while (i &lt;= 5);
+                        </code>
+                    </div>
+
+                    <div class="highlight-box blue" style="margin-top: 8px;">
+                        🔗 <strong>Link útil:</strong>
+                        <button class="btn btn-sm" onclick="abrirOneCompiler(&#39;atv3&#39;)" style="margin-left:8px;">
+                            ▶️ Abrir no OneCompiler
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exemplo-codigo">
+                    <span class="comment">// Contagem com DO...WHILE de 0 a 5</span>
+                    <span class="keyword">let</span> i <span class="operator">=</span> <span class="number">0</span>;
+                    <span class="keyword">do</span> {
+                        <span class="function">console</span>.<span class="function">log</span>(i);
+                        i<span class="operator">++</span>;
+                    } <span class="keyword">while</span> (i <span class="operator">&lt;=</span> <span class="number">5</span>);
+                </div>
+
+                <div class="saida-esperada">
+                    <strong>✅ Saída esperada:</strong><br>
+                    0<br>
+                    1<br>
+                    2<br>
+                    3<br>
+                    4<br>
+                    5
+                </div>
+
+                <div class="campo-resposta">
+                    <label>📋 Cole aqui a saída do console:</label>
+                    <textarea id="resposta3" placeholder="Cole a saída do OneCompiler aqui..." class="correct" disabled=""></textarea>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-sm" onclick="verificarAtividade(3)">✅ Verificar</button>
+                    <button class="btn btn-sm btn-secondary" onclick="limparResposta(3)">🔄 Limpar</button>
+                </div>
+
+                <div id="feedback3" style="margin-top: 8px;">
+                    <div class="highlight-box green" style="margin-top: 8px;">
+                        <strong>🎉 Perfeito! Todas as linhas estão corretas!</strong>
+                        <div style="margin-top: 4px;"><div class="resultado-item correct">✅ Linha 1: "0" - Correta</div><div class="resultado-item correct">✅ Linha 2: "1" - Correta</div><div class="resultado-item correct">✅ Linha 3: "2" - Correta</div><div class="resultado-item correct">✅ Linha 4: "3" - Correta</div><div class="resultado-item correct">✅ Linha 5: "4" - Correta</div><div class="resultado-item correct">✅ Linha 6: "5" - Correta</div></div>
+                        <div style="margin-top: 8px; font-size: 0.85rem;">
+                            💡 <strong>Sugestão de saída:</strong>
+                            <div style="background: #f0f0f0; color: #1a1a2e; padding: 8px 12px; border-radius: 6px; font-family: monospace; margin-top: 4px; font-size: 0.8rem; border: 1px solid #dee2e6;">
+                                0
+1
+2
+3
+4
+5
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATIVIDADE 4: FOR...OF -->
+            <div class="atividade" id="atv4">
+                <div>
+                    <span class="numero">4</span>
+                    <span class="titulo">Iterando sobre um Array (FOR...OF)</span>
+                </div>
+
+                <div class="enunciado">
+                    <p><strong>📌 Enunciado:</strong></p>
+                    <p>Dado o array <code>let cores = ["Vermelho", "Verde", "Azul", "Amarelo"];</code></p>
+                    <p>Use o laço <code>for...of</code> para exibir cada cor em uma linha separada.</p>
+
+                    <div class="dica-loop">
+                        💡 <strong>Dica:</strong> A estrutura do <code>for...of</code> é:
+                        <code style="display:block; margin-top:4px; font-family:monospace;">
+                            for (let cor of cores) { console.log(cor); }
+                        </code>
+                    </div>
+
+                    <div class="highlight-box blue" style="margin-top: 8px;">
+                        🔗 <strong>Link útil:</strong>
+                        <button class="btn btn-sm" onclick="abrirOneCompiler(&#39;atv4&#39;)" style="margin-left:8px;">
+                            ▶️ Abrir no OneCompiler
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exemplo-codigo">
+                    <span class="comment">// Iterando sobre um array com FOR...OF</span>
+                    <span class="keyword">let</span> cores <span class="operator">=</span> [<span class="string">"Vermelho"</span>, <span class="string">"Verde"</span>, <span class="string">"Azul"</span>, <span class="string">"Amarelo"</span>];
+
+                    <span class="keyword">for</span> (<span class="keyword">let</span> cor <span class="keyword">of</span> cores) {
+                        <span class="function">console</span>.<span class="function">log</span>(cor);
+                    }
+                </div>
+
+                <div class="saida-esperada">
+                    <strong>✅ Saída esperada:</strong><br>
+                    Vermelho<br>
+                    Verde<br>
+                    Azul<br>
+                    Amarelo
+                </div>
+
+                <div class="campo-resposta">
+                    <label>📋 Cole aqui a saída do console:</label>
+                    <textarea id="resposta4" placeholder="Cole a saída do OneCompiler aqui..." class="correct" disabled=""></textarea>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-sm" onclick="verificarAtividade(4)">✅ Verificar</button>
+                    <button class="btn btn-sm btn-secondary" onclick="limparResposta(4)">🔄 Limpar</button>
+                </div>
+
+                <div id="feedback4" style="margin-top: 8px;">
+                    <div class="highlight-box green" style="margin-top: 8px;">
+                        <strong>🎉 Perfeito! Todas as linhas estão corretas!</strong>
+                        <div style="margin-top: 4px;"><div class="resultado-item correct">✅ Linha 1: "Vermelho" - Correta</div><div class="resultado-item correct">✅ Linha 2: "Verde" - Correta</div><div class="resultado-item correct">✅ Linha 3: "Azul" - Correta</div><div class="resultado-item correct">✅ Linha 4: "Amarelo" - Correta</div></div>
+                        <div style="margin-top: 8px; font-size: 0.85rem;">
+                            💡 <strong>Sugestão de saída:</strong>
+                            <div style="background: #f0f0f0; color: #1a1a2e; padding: 8px 12px; border-radius: 6px; font-family: monospace; margin-top: 4px; font-size: 0.8rem; border: 1px solid #dee2e6;">
+                                Vermelho
+Verde
+Azul
+Amarelo
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ATIVIDADE 5: BREAK -->
+            <div class="atividade" id="atv5">
+                <div>
+                    <span class="numero">5</span>
+                    <span class="titulo">Interrompendo um Loop com BREAK</span>
+                </div>
+
+                <div class="enunciado">
+                    <p><strong>📌 Enunciado:</strong></p>
+                    <p>Use o laço <code>for</code> para contar de <strong>0 a 10</strong>, mas interrompa a execução quando chegar em <strong>5</strong> usando <code>break</code>.</p>
+                    <p>Exiba apenas os números de <strong>0 a 4</strong>.</p>
+
+                    <div class="dica-loop">
+                        💡 <strong>Dica:</strong> Use <code>if (i === 5) { break; }</code> para interromper o loop.
+                        <code style="display:block; margin-top:4px; font-family:monospace;">
+                            for (let i = 0; i &lt;= 10; i++) {<br>
+                            &nbsp;&nbsp;if (i === 5) { break; }<br>
+                            &nbsp;&nbsp;console.log(i);<br>
+                            }
+                        </code>
+                    </div>
+
+                    <div class="highlight-box blue" style="margin-top: 8px;">
+                        🔗 <strong>Link útil:</strong>
+                        <button class="btn btn-sm" onclick="abrirOneCompiler(&#39;atv5&#39;)" style="margin-left:8px;">
+                            ▶️ Abrir no OneCompiler
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exemplo-codigo">
+                    <span class="comment">// Interrompendo o loop com BREAK</span>
+                    <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;=</span> <span class="number">10</span>; i<span class="operator">++</span>) {
+                        <span class="keyword">if</span> (i <span class="operator">===</span> <span class="number">5</span>) {
+                            <span class="keyword">break</span>;
+                        }
+                        <span class="function">console</span>.<span class="function">log</span>(i);
+                    }
+                </div>
+
+                <div class="saida-esperada">
+                    <strong>✅ Saída esperada:</strong><br>
+                    0<br>
+                    1<br>
+                    2<br>
+                    3<br>
+                    4
+                </div>
+
+                <div class="campo-resposta">
+                    <label>📋 Cole aqui a saída do console:</label>
+                    <textarea id="resposta5" placeholder="Cole a saída do OneCompiler aqui..." class="correct" disabled=""></textarea>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-sm" onclick="verificarAtividade(5)">✅ Verificar</button>
+                    <button class="btn btn-sm btn-secondary" onclick="limparResposta(5)">🔄 Limpar</button>
+                </div>
+
+                <div id="feedback5" style="margin-top: 8px;">
+                    <div class="highlight-box green" style="margin-top: 8px;">
+                        <strong>🎉 Perfeito! Todas as linhas estão corretas!</strong>
+                        <div style="margin-top: 4px;"><div class="resultado-item correct">✅ Linha 1: "0" - Correta</div><div class="resultado-item correct">✅ Linha 2: "1" - Correta</div><div class="resultado-item correct">✅ Linha 3: "2" - Correta</div><div class="resultado-item correct">✅ Linha 4: "3" - Correta</div><div class="resultado-item correct">✅ Linha 5: "4" - Correta</div></div>
+                        <div style="margin-top: 8px; font-size: 0.85rem;">
+                            💡 <strong>Sugestão de saída:</strong>
+                            <div style="background: #f0f0f0; color: #1a1a2e; padding: 8px 12px; border-radius: 6px; font-family: monospace; margin-top: 4px; font-size: 0.8rem; border: 1px solid #dee2e6;">
+                                0
+1
+2
+3
+4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTÕES GERAIS -->
+            <div style="text-align: center; margin-top: 20px;" class="no-print">
+                <button class="btn" onclick="verificarTodas()">✅ Verificar todas</button>
+                <button class="btn btn-secondary" onclick="limparTodas()">🔄 Limpar todas</button>
+                <button class="btn btn-danger" onclick="recomecar()">🔁 Recomeçar</button>
+            </div>
+
+            <!-- RESULTADO GERAL -->
+            <div class="result-box show" id="resultadoGeral">
+                <h2>📊 Resultado Final</h2>
+                <div class="score" id="pontuacaoGeral">5 / 5</div>
+                <div id="feedbackGeral"><div class="resultado-item correct">✅ Atividade 1 - Correta</div><div class="resultado-item correct">✅ Atividade 2 - Correta</div><div class="resultado-item correct">✅ Atividade 3 - Correta</div><div class="resultado-item correct">✅ Atividade 4 - Correta</div><div class="resultado-item correct">✅ Atividade 5 - Correta</div></div>
+                <div style="margin-top: 15px;" class="no-print">
+                    <button class="btn btn-success" onclick="window.print()">🖨️ Imprimir Resultado (PDF)</button>
+                    <button class="btn btn-danger" onclick="recomecar()">🔁 Recomeçar</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ============================================================
+        FOOTER
+        ============================================================ -->
+        <div class="footer no-print">
+            <p>🔄 TEMA 5 - Atividades Práticas | Laços de Repetição em JavaScript</p>
+            <p>🎯 Pratique com OneCompiler e teste seus conhecimentos!</p>
+        </div>
+
+    </div>
+
+    <!-- ============================================================
+    BOTÃO TOPO
+    ============================================================ -->
+    <button class="btn-top no-print" onclick="window.scrollTo({top: 0, behavior: &#39;smooth&#39;})">⬆️ Topo</button>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        // ============================================================
+        // ABRIR ONECOMPILER
+        // ============================================================
+        function abrirOneCompiler(atividade) {
+            const codigos = {
+                atv1: `// ATIVIDADE 1: Contagem com FOR (0 a 10)
+        for (let i = 0; i <= 10; i++) {
+            console.log(i);
+        }`,
+
+                atv2: `// ATIVIDADE 2: Contagem regressiva com WHILE (10 a 0)
+        let i = 10;
+        while (i >= 0) {
+            console.log(i);
+            i--;
+        }`,
+
+                atv3: `// ATIVIDADE 3: Contagem com DO...WHILE (0 a 5)
+        let i = 0;
+        do {
+            console.log(i);
+            i++;
+        } while (i <= 5);`,
+
+                atv4: `// ATIVIDADE 4: Iterando sobre um array com FOR...OF
+        let cores = ["Vermelho", "Verde", "Azul", "Amarelo"];
+
+        for (let cor of cores) {
+            console.log(cor);
+        }`,
+
+                atv5: `// ATIVIDADE 5: Interrompendo o loop com BREAK
+        for (let i = 0; i <= 10; i++) {
+            if (i === 5) {
+                break;
+            }
+            console.log(i);
+        }`
+            };
+
+            const url = 'https://onecompiler.com/javascript?code=' + encodeURIComponent(codigos[atividade]);
+            window.open(url, '_blank');
+        }
+
+        // ============================================================
+        // GABARITO DAS ATIVIDADES
+        // ============================================================
+        const gabarito = {
+            1: {
+                saidas: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+                normalize: function(texto) {
+                    return texto.trim().replace(/\s+/g, ' ');
+                }
+            },
+            2: {
+                saidas: ['10', '9', '8', '7', '6', '5', '4', '3', '2', '1', '0'],
+                normalize: function(texto) {
+                    return texto.trim().replace(/\s+/g, ' ');
+                }
+            },
+            3: {
+                saidas: ['0', '1', '2', '3', '4', '5'],
+                normalize: function(texto) {
+                    return texto.trim().replace(/\s+/g, ' ');
+                }
+            },
+            4: {
+                saidas: ['Vermelho', 'Verde', 'Azul', 'Amarelo'],
+                normalize: function(texto) {
+                    return texto.trim().replace(/\s+/g, ' ');
+                }
+            },
+            5: {
+                saidas: ['0', '1', '2', '3', '4'],
+                normalize: function(texto) {
+                    return texto.trim().replace(/\s+/g, ' ');
+                }
+            }
+        };
+
+        // ============================================================
+        // VERIFICAR ATIVIDADE INDIVIDUAL
+        // ============================================================
+        function verificarAtividade(num) {
+            const textarea = document.getElementById('resposta' + num);
+            const feedback = document.getElementById('feedback' + num);
+            const resposta = textarea.value.trim();
+
+            if (resposta === '') {
+                feedback.innerHTML = '<div class="highlight-box orange">⚠️ Cole a saída do console antes de verificar!</div>';
+                return;
+            }
+
+            const gab = gabarito[num];
+            const linhas = resposta.split('\n').filter(line => line.trim() !== '');
+            const linhasNormalizadas = linhas.map(gab.normalize);
+            const esperadoNormalizado = gab.saidas.map(gab.normalize);
+
+            let corretas = 0;
+            let resultadoHTML = '';
+
+            // Verifica se as linhas correspondem
+            for (let i = 0; i < esperadoNormalizado.length; i++) {
+                const linhaAtual = linhasNormalizadas[i] || '';
+                const isCorrect = linhaAtual === esperadoNormalizado[i];
+
+                if (isCorrect) {
+                    corretas++;
+                    resultadoHTML += `<div class="resultado-item correct">✅ Linha ${i+1}: "${linhas[i] || ''}" - Correta</div>`;
+                } else {
+                    resultadoHTML += `<div class="resultado-item wrong">❌ Linha ${i+1}: "${linhas[i] || ''}" - Incorreta (esperado: "${gab.saidas[i]}")</div>`;
+                }
+            }
+
+            // Verifica se tem linhas extras
+            if (linhas.length > esperadoNormalizado.length) {
+                for (let i = esperadoNormalizado.length; i < linhas.length; i++) {
+                    resultadoHTML +=
+                        `<div class="resultado-item wrong">⚠️ Linha ${i+1}: "${linhas[i]}" - Extra (não esperado)</div>`;
+                }
+            }
+
+            // Verifica se tem linhas faltando
+            if (linhas.length < esperadoNormalizado.length) {
+                for (let i = linhas.length; i < esperadoNormalizado.length; i++) {
+                    resultadoHTML +=
+                        `<div class="resultado-item wrong">⚠️ Linha ${i+1}: faltando (esperado: "${gab.saidas[i]}")</div>`;
+                }
+            }
+
+            const total = esperadoNormalizado.length;
+            const percentual = Math.round((corretas / total) * 100);
+
+            let status = '';
+            let cor = '';
+            if (percentual === 100 && linhas.length === total) {
+                status = '🎉 Perfeito! Todas as linhas estão corretas!';
+                cor = 'green';
+                textarea.className = 'correct';
+            } else if (percentual >= 50) {
+                status = `💪 Quase lá! Você acertou ${corretas} de ${total} linhas.`;
+                cor = 'blue';
+                textarea.className = '';
+            } else {
+                status = `📚 Continue praticando! Você acertou ${corretas} de ${total} linhas.`;
+                cor = 'orange';
+                textarea.className = 'wrong';
+            }
+
+            // Sugestão de resposta
+            const sugestao = gab.saidas.join('\n');
+
+            feedback.innerHTML = `
+                    <div class="highlight-box ${cor}" style="margin-top: 8px;">
+                        <strong>${status}</strong>
+                        <div style="margin-top: 4px;">${resultadoHTML}</div>
+                        <div style="margin-top: 8px; font-size: 0.85rem;">
+                            💡 <strong>Sugestão de saída:</strong>
+                            <div style="background: #f0f0f0; color: #1a1a2e; padding: 8px 12px; border-radius: 6px; font-family: monospace; margin-top: 4px; font-size: 0.8rem; border: 1px solid #dee2e6;">
+                                ${sugestao}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+            // Desabilita o textarea após verificação
+            textarea.disabled = true;
+            textarea.classList.add('disabled');
+        }
+
+        // ============================================================
+        // VERIFICAR TODAS
+        // ============================================================
+        function verificarTodas() {
+            let total = 0;
+            let acertos = 0;
+            let feedbackHTML = '';
+
+            for (let i = 1; i <= 5; i++) {
+                const textarea = document.getElementById('resposta' + i);
+                const resposta = textarea.value.trim();
+
+                if (resposta === '') {
+                    feedbackHTML += `<div class="resultado-item wrong">❌ Atividade ${i} - Não respondida</div>`;
+                    continue;
+                }
+
+                total++;
+                const gab = gabarito[i];
+                const linhas = resposta.split('\n').filter(line => line.trim() !== '');
+                const linhasNormalizadas = linhas.map(gab.normalize);
+                const esperadoNormalizado = gab.saidas.map(gab.normalize);
+
+                let corretas = 0;
+                for (let j = 0; j < esperadoNormalizado.length; j++) {
+                    if (linhasNormalizadas[j] === esperadoNormalizado[j]) {
+                        corretas++;
+                    }
+                }
+
+                const percentual = Math.round((corretas / esperadoNormalizado.length) * 100);
+                if (percentual === 100 && linhas.length === esperadoNormalizado.length) {
+                    acertos++;
+                    feedbackHTML += `<div class="resultado-item correct">✅ Atividade ${i} - Correta</div>`;
+                } else {
+                    feedbackHTML += `<div class="resultado-item wrong">❌ Atividade ${i} - Incorreta (${corretas}/${esperadoNormalizado.length} linhas corretas)</div>`;
+                }
+
+                // Marca como verificada
+                textarea.disabled = true;
+                textarea.classList.add('disabled');
+                if (percentual === 100 && linhas.length === esperadoNormalizado.length) {
+                    textarea.className = 'correct';
+                } else {
+                    textarea.className = 'wrong';
+                }
+            }
+
+            document.getElementById('pontuacaoGeral').textContent = acertos + ' / ' + total;
+            document.getElementById('feedbackGeral').innerHTML = feedbackHTML;
+            document.getElementById('resultadoGeral').classList.add('show');
+
+            // Scroll para o resultado
+            document.getElementById('resultadoGeral').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // ============================================================
+        // LIMPAR RESPOSTA INDIVIDUAL
+        // ============================================================
+        function limparResposta(num) {
+            const textarea = document.getElementById('resposta' + num);
+            const feedback = document.getElementById('feedback' + num);
+
+            textarea.value = '';
+            textarea.disabled = false;
+            textarea.className = '';
+            textarea.classList.remove('correct', 'wrong', 'disabled');
+            feedback.innerHTML = '';
+        }
+
+        // ============================================================
+        // LIMPAR TODAS
+        // ============================================================
+        function limparTodas() {
+            for (let i = 1; i <= 5; i++) {
+                limparResposta(i);
+            }
+            document.getElementById('resultadoGeral').classList.remove('show');
+        }
+
+        // ============================================================
+        // RECOMEÇAR
+        // ============================================================
+        function recomecar() {
+            if (confirm('🔁 Tem certeza que deseja recomeçar? Todas as respostas serão apagadas.')) {
+                limparTodas();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // ============================================================
+        // PERMITE PASTAR NO TEXTAREA
+        // ============================================================
+        document.querySelectorAll('.campo-resposta textarea').forEach(textarea => {
+            textarea.addEventListener('paste', function(e) {
+                setTimeout(() => {
+                    this.value = this.value.trim();
+                }, 100);
+            });
+        });
+    </script>
+
+
+</body></html>
